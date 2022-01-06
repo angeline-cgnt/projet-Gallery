@@ -23,9 +23,10 @@ require '../controller/dashboard-controller.php';
 if(isset($login)){ ?>
     <h1>allPIX</h1>
     <h2>Bonjour <?= $_SESSION['login'] ?></h2>
-    <p>Quota: <?= $quotaUsed ?> / <?= $_SESSION['quota'] ?> Mo</p>
-    <p>Total image(s) : <?= $countFiles ?> </p>
+    <p class="quota">Quota: <?= $quotaUsed ?> / <?= $_SESSION['quota'] ?> Mo</p>
+    <p class="totImg">Total image(s) : <?= $countFiles ?> </p>
 
+    
     <div class="formUpload">
         <p>Veuillez choisir une image</p>
         <form action="dashboard.php" method="POST" enctype="multipart/form-data">
@@ -34,12 +35,13 @@ if(isset($login)){ ?>
         </form>
     </div>
 
-    <p class="comment"><?= $arrayMsg['msg'] ?? '' ?></p>
-
-    <a href="gallery.php"><button class="button">Gallery</button></a>
+    <p class="comment"><?= $msg ?? '' ?></p>
     <img id="preview">
+    
+    <a class="linkGallery" href="gallery.php"><button class="button">GALLERY</button></a>
+    
+    <a class="linkLogOut" href="deconnection.php">Déconnexion</a>
 
-    <a href="deconnection.php">Déconnexion</a>
     <?php } else {
         header('Location: no-allowed.php');
     } ?>

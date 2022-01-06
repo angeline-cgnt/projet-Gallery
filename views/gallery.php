@@ -10,6 +10,7 @@ require '../controller/gallery-controller.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery</title>
+    <link rel="stylesheet" href="../assets/lightbox.css">
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +25,7 @@ if(isset($login)){ ?>
     <div class="gridImg">
         <?php
         foreach ($files as $fileName) { ?>
-            <img src="<?= $fileName ?>" alt="">
+            <a href="<?= $fileName ?>" data-lightbox="roadtrip"><img class="img" src="<?= $fileName ?>" alt=""></a>
         <?php }
         ?>
     </div>
@@ -36,6 +37,9 @@ if(isset($login)){ ?>
     <?php } else {
         header('Location: no-allowed.php');
     } ?>
+
+
+<script src="../assets/lightbox-plus-jquery.js"></script>
 
 </body>
 

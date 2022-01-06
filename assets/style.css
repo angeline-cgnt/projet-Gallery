@@ -7,12 +7,16 @@ html, body{
 }
 
 #preview {
-	width: 200px; 
+	width: 10rem; 
 	display: block;
 	margin-left: 1rem;
 }
 
 .formUpload{
+	margin: 1rem;
+}
+
+.totImg, .quota {
 	margin: 1rem;
 }
 
@@ -70,15 +74,19 @@ a{
 }
 
 .gridImg{
-	text-align: center;
 	margin-bottom: 3rem;
+	text-align: center;
 }
 
-.gridImg > img {
+.gridImg > a {
+	display: inline-block;
+	margin: 0.5rem;
+}
+
+.img{
 	width: 18rem;
 	aspect-ratio: 1/1;
 	object-fit: cover;
-	margin: 0.5rem;
 }
 
 .link{
@@ -88,4 +96,14 @@ a{
 
 .link > a {
 	margin: 0.5rem;
+}
+
+.linkLogOut{
+	display: block;
+	text-align: center;
+	margin-top: 2rem;
+}
+
+.linkGallery{
+	margin: 1rem;
 }

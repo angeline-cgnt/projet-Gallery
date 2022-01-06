@@ -1,12 +1,11 @@
 <?php
 require_once '../my-config.php';
-$arrayMsg = [];
+$msg = '';
 
 $id = uniqid();
 
 session_start();
 $login = $_SESSION['login'];
-
 $quota = 0;
 
 // Uploader une image
@@ -24,12 +23,12 @@ if (isset($_FILES['fileToUpload'])) {
         if ($typeImg !== false && in_array($ext, $arrayExt)) {
             if ($size < $maxSize) {
                 move_uploaded_file($tmpName, "../img/$login-$id-$name");
-                $arrayMsg['msg'] = 'Fichier ajouté';
+                $msg = 'Fichier ajouté';
             } else {
-                $arrayMsg['msg'] = 'Fichier trop volumineux. Veuillez en choisir un autre.';
+                $msg = 'Fichier trop volumineux. Veuillez en choisir un autre.';
             }
         } else {
-            $arrayMsg['msg'] = 'Format de fichier non valide. Veuilez choisir une image au format jpg, jpeg, png ou gif.';
+            $msg = 'Format de fichier non valide. Veuilez choisir une image au format jpg, jpeg, png ou gif.';
         }
     } 
 }
