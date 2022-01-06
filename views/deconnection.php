@@ -17,7 +17,7 @@ session_destroy();
 </head>
 <body>
     <h1>allPIX</h1>
-    <p>Vous êtes déconnecté</p>
-    <a href="../index.php">Se connecter</a>
+    <p class="userLogOut">Vous êtes déconnecté</p>
+    <div class="linkConnect"><a href="../index.php">Se connecter</a></div>
 </body>
 </html>

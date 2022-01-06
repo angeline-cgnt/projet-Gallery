@@ -40,7 +40,7 @@ if(isset($login)){ ?>
     
     <a class="linkGallery" href="gallery.php"><button class="button">GALLERY</button></a>
     
-    <a class="linkLogOut" href="deconnection.php">Déconnexion</a>
+    <div class="userLogOut"><a href="deconnection.php">Déconnexion</a></div>
 
     <?php } else {
         header('Location: no-allowed.php');

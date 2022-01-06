@@ -8,6 +8,17 @@ session_start();
 $login = $_SESSION['login'];
 $quota = 0;
 
+// Nombre de fichiers dans le dossier img et quota utilisé
+$files = glob("../img/$login*.*");
+
+$countFiles = count($files);
+
+foreach ($files as $filename) {
+    $quota += filesize($filename);
+}
+
+$quotaUsed = round($quota / (1024 * 1024), 2);
+
 // Uploader une image
 if (isset($_FILES['fileToUpload'])) {
     $tmpName = $_FILES['fileToUpload']['tmp_name'];
@@ -22,15 +33,19 @@ if (isset($_FILES['fileToUpload'])) {
 
         if ($typeImg !== false && in_array($ext, $arrayExt)) {
             if ($size < $maxSize) {
-                move_uploaded_file($tmpName, "../img/$login-$id-$name");
-                $msg = 'Fichier ajouté';
+                if (($quotaUsed + ($size / (1024 * 1024))) <= $_SESSION['quota']) {
+                    move_uploaded_file($tmpName, "../img/$login-$id-$name");
+                    $msg = 'Fichier ajouté';
+                } else {
+                    $msg = 'Quota atteint';
+                }
             } else {
                 $msg = 'Fichier trop volumineux. Veuillez en choisir un autre.';
             }
         } else {
-            $msg = 'Format de fichier non valide. Veuilez choisir une image au format jpg, jpeg, png ou gif.';
+            $msg = 'Format de fichier non valide. Veuilez choisir une image au format jpg, jpeg ou png.';
         }
-    } 
+    }
 }
 
 // Nombre de fichiers dans le dossier img et quota utilisé
@@ -38,8 +53,9 @@ $files = glob("../img/$login*.*");
 
 $countFiles = count($files);
 
-foreach($files as $filename){
-   $quota += filesize($filename);
+$quota = 0;
+foreach ($files as $filename) {
+    $quota += filesize($filename);
 }
 
-$quotaUsed = round($quota / 1000000, 2);
+$quotaUsed = round($quota / (1024 * 1024), 2);
