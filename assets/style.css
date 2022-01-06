@@ -1,0 +1,91 @@
+html, body{
+	height: 100%;
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+	background-color: #3e1f47;
+	color: white;
+}
+
+#preview {
+	width: 200px; 
+	display: block;
+	margin-left: 1rem;
+}
+
+.formUpload{
+	margin: 1rem;
+}
+
+.comment{
+	margin-left: 1rem;
+	margin-top: 2rem;
+	font-weight: bold;
+}
+
+h1{
+	text-align: center;
+	color: white;
+	margin: 0;
+	padding: 1.5rem;
+}
+
+h2{
+	text-align: center;
+}
+
+.formConnect{
+	text-align: center;
+	margin: auto;
+}
+
+.formConnect > form > div {
+	margin-bottom: 2rem;
+}
+
+label{
+	color: white;
+}
+
+input{
+	border: none;
+}
+
+.button{
+	color: gray;
+	padding: 0.3rem 0.7rem;
+	background-color: white;
+	border: none;
+}
+
+.noAccess{
+	text-align: center;
+}
+
+a{
+	color: white;
+}
+
+.linkConnect{
+	text-align: center;
+}
+
+.gridImg{
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.gridImg > img {
+	width: 18rem;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	margin: 0.5rem;
+}
+
+.link{
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.link > a {
+	margin: 0.5rem;
+}
